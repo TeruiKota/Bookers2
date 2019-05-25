@@ -1,0 +1,9 @@
+<p>user info</p>
+<%= @user.name %>
+<%= @user.introduction %>
+
+<p>books</p>
+<% @user.books.each do |book| %>
+  <%= book.title %>
+  <%= book.body %>
+<% end %>
