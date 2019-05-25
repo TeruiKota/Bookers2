@@ -1,0 +1,5 @@
+<%= @book.title %>
+<%= @book.body %>
+
+<%= link_to "EDIT", edit_book_path(@book) %>
+<%= link_to "DESTROY", book_path(@book), method: :delete %>

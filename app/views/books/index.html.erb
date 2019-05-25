@@ -1,0 +1,15 @@
+<%= form_for(@book) do |f| %>
+  <label>title</label>
+  <%= f.text_field :title %>
+  <br>
+  <label>option</label>
+  <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>
+
+<div>
+  <% @books.each do |book| %>
+    <%= link_to book.title, book_path(book) %>
+    <%= book.body %>
+  <% end %>
+</div>
