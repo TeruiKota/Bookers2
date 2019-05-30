@@ -1,5 +1,29 @@
-<%= @book.title %>
-<%= @book.body %>
-
-<%= link_to "EDIT", edit_book_path(@book) %>
-<%= link_to "DESTROY", book_path(@book), method: :delete %>
+<%= render "layouts/errors", book: @book_new %>
+<div class="row">
+  <%= render "layouts/sidebar", {book: @book_new, user: @book.user} %>
+  <div class="col-9">
+    <h2>Book detail</h2>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Title</th>
+          <th scope="col">Body</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <th scope="row"><%= attachment_image_tag @book.user, :profile_image, size: "40x40", fallback: "no_image.jpg" %><br><%= link_to @book.user.name, user_path(@book.user) %></th>
+            <td><%= @book.title %></td>
+            <td><%= @book.body %></td>
+            <% if @book.user == current_user %>
+              <td><%= link_to "EDIT", edit_book_path(@book) %></td>
+              <td><%= link_to "DESTROY", book_path(@book), method: :delete %></td>
+            <% end %>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -10,6 +10,48 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *
  */
- 
- // Custom bootstrap variables must be set or imported *before* bootstrap.  @import "bootstrap";
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+h2, h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.action {
+  margin-top: 10px;
+}
+
+a {
+  text_decoration: none;
+  color: #666;
+}
+
+.error_explanation {
+  color: red;
+}
+
+label {
+  display: block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+footer p {
+  float: right;
+}
+
+.notice {
+  color: green;
+}
+
+.fas::before {
+  margin-right: 10px;
+}
+
+.far::before {
+  margin-right: 8px;
+}

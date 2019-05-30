@@ -1,7 +1,19 @@
+<% if @user.errors.any? %>
+  <div class="error_explanation">
+    <h3><%= pluralize(@user.errors.count, "error") %> prohibited this obj from being saved:</h3>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= form_for(@user) do |f| %>
   <label for="inputName">Name</label>
-  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"Name" %>
+  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"Name", class: "form-control" %>
   <label for="inputInto">Introduction</label>
-  <%= f.text_area :introduction, autofocus: true, id:"inputInto", placeholder: "Introduction" %>
-  <%= f.submit "Edit" %>
+  <%= f.text_area :introduction, autofocus: true, id:"inputInto", placeholder: "Introduction", class: "form-control" %>
+  <label class="control-label sr-only" for="inputEmail">ProfileImage</label>
+  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "form-control-file action" %>
+  <%= f.submit "Edit", class: "btn btn-primary action" %>
 <% end %>

@@ -1,0 +1,39 @@
+<div class="col-3">
+  <h2>User info</h2>
+  <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: "jpeg", fallback: "no_image.jpg" %>
+  <table class="table">
+    <tbody>
+      <tr></tr>
+      <tr>
+        <th>name</th>
+        <th><%= user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= user.introduction %></th>
+      </tr>
+    </tbody>
+  </table>
+  <% if current_user == user %>
+    <div class="row">
+      <%= link_to edit_user_path(current_user), class: "col-12 btn btn-outline-secondary" do %>
+        <i class="fas fa-wrench"></i>
+      <% end %>
+    </div>
+  <% end %>
+
+  <h2>New book</h2>
+  <%= form_for(book) do |f| %>
+    <div class="row">
+      <label for="inputTitle">title</label>
+      <%= f.text_field :title, class: "col-12", id: "inputTitle" %>
+    </div>
+    <div class="row">
+      <label for="inputBody">option</label>
+      <%= f.text_area :body, class: "col-12", id: "inputBody" %>
+    </div>
+    <div class="row action">
+      <%= f.submit class: "btn btn-primary col-12" %>
+    </div>
+  <% end %>
+</div>
